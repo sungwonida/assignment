@@ -211,7 +211,7 @@ bool is_assignable(const int target, const std::vector<std::vector<int>> target_
     return false;
 }
 
-float assign_jobs(const float* cost, const int N, const int M, const int mode, const float* working_cost, const State& n_zeros_of, int* assignment_index) {
+float assign(const float* cost, const int N, const int M, const int mode, const float* working_cost, const State& n_zeros_of, int* assignment_index) {
 
     float total_cost = .0;
 
@@ -609,7 +609,7 @@ float solve(const float* cost, const int N, const int M, const int mode, int* as
 #endif
     }
 
-    float total_cost = assign_jobs(cost, N, M, mode, working_cost, n_zeros_of, assignment_index);
+    float total_cost = assign(cost, N, M, mode, working_cost, n_zeros_of, assignment_index);
     free_mat(working_cost);
 
     return total_cost;
